@@ -10,7 +10,8 @@ const arcGrey = "#868686";
     palette:{
         common:{
             blue:`${arcBlue}`,
-            orange:`${arcOrange}`
+            orange:`${arcOrange}`,
+            grey : `${arcGrey}`
         },
         primary:{
             main:`${arcBlue}`

@@ -1,12 +1,14 @@
 import React from 'react';
-import { makeStyles } from '@mui/styles';
+import { makeStyles, useTheme } from '@mui/styles';
 import Lottie from 'react-lottie';
 import animationData from '../animations/landinganimation/data'
 import Grid from '@mui/material/Grid';
 import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import customsoftwareicon from '../assets/Custom Software Icon.svg'
+
 export const StyledButton = styled(Button)(({ theme }) => ({
   
   backgroundColor: theme.palette.common.blue,
@@ -64,6 +66,9 @@ export const LearnButton = styled(Button)(({ theme }) => ({
       marginLeft: 0
     }
 
+  },
+  serviceContainer:{
+    marginTop: "12em"
   }
 
  
@@ -71,6 +76,8 @@ export const LearnButton = styled(Button)(({ theme }) => ({
 
 export default function LandingPage(){
      const classes = useStyles();
+     const theme = useTheme()
+     const matchesSM= useMediaQuery(theme.breakpoints.down("sm"))
 
     const defaultOptions = {
       loop: true,
@@ -88,7 +95,7 @@ export default function LandingPage(){
         <Grid container justifyContent="flex-end" alignItems="center" direction="row">
           <Grid xs={12} sm={6} item>
           <Typography variant="h2" align='center'>
-          Getting to a <br/>
+          Getting to the <br/>
           Future, Faster, Together.
           </Typography>
           <Grid container justifyContent="center" className={classes.buttonContainer}>
@@ -107,10 +114,10 @@ export default function LandingPage(){
         </Grid>
         </Grid>
         <Grid item>{/*---Services---*/}
-        <Grid container direction="row">
-          <Grid item>
+        <Grid container direction="row" className={classes.serviceContainer}>
+          <Grid item style={{marginLeft:"5em"}}>
             <Typography variant ="h4">
-              Custom Software Development
+              Custom Software Development 
             </Typography>
              <Typography variant ="subtitle1">
               Save Energy. Save Time. Save Money.
